@@ -1,0 +1,14 @@
+---
+- name: Installation des serveur web
+  hosts: web
+  remote_user: root
+  
+  tasks:
+   - name: Installation de git
+     apt: name=git update_cache=yes
+   - name: Installation de nginx
+     apt: name=nginx state=latest
+   - name: Demmarer nginx
+     service: name=nginx state=started enabled=true
+
+...
