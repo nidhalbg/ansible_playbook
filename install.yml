@@ -1,0 +1,20 @@
+---
+- name: Web config
+  hosts: web
+  remote_user: root
+  
+  tasks:
+  - include_vars:
+      file: vars.yml
+  - name: APT | update & upgrade
+    apt:
+      #upgrade: dist 
+      update_cache: yes
+  - include_role:
+        name: tools
+  - include_role:
+        name: php
+  # - include_role:
+  #       name: mysql
+
+...
